@@ -2,3 +2,18 @@
 @import './example';
 @import './style.scss';
 
+html {
+  box-sizing: border-box;
+  //   height: 1000px;
+}
+
+*,
+*::before,
+::after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+}
+

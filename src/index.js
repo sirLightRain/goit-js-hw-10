@@ -50,7 +50,7 @@ fetchBreeds()
 
     //!  Стилізуємо селект з допомогою бібіліотеки SlimSelect ****************************************************
     new SlimSelect({
-      select: '#slim-select',
+      select: breedSelect
     });
     //!  Стилізуємо селект з допомогою бібіліотеки SlimSelect ****************************************************
   })
@@ -86,7 +86,7 @@ breedSelect.addEventListener('change', evt => {
                 <img src="${cat.url}" alt="${cat.id}" width="400" />
             </div>
 
-            <div class="thumb" style="flex: 1; margin-left: 10px; margin-top: -24px">
+            <div class="thumb" style="margin-left: 10px; margin-top: -24px; width: 400px;">
                 <h2>${cat.breeds[0].name}</h2>
                 <p>${cat.breeds[0].description}</p>
                 <p><b>Temperament:</b> ${cat.breeds[0].temperament}</p>

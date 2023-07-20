@@ -56,12 +56,19 @@ breedSelect.addEventListener('change', evt => {
       Notiflix.Loading.remove(delay);
       //   Створ.ємо розмітку інформації про кота
       const markup = `
-          <div class='thumb-pic'><img src="${cat.url}" alt="${cat.id}" width=400></div>
-          <div class='thumb'>
-          <h2>${cat.breeds[0].name}</h2>
-          <p>${cat.breeds[0].description}</p>
-          <p><b>Temperament:</b> ${cat.breeds[0].temperament}</p>
-          </div>`;
+        <div class="container" style="display: flex;">
+
+            <div class="thumb-pic">
+                <img src="${cat.url}" alt="${cat.id}" width="400" />
+            </div>
+
+            <div class="thumb" style="flex: 1; margin-left: 10px; margin-top: -24px">
+                <h2>${cat.breeds[0].name}</h2>
+                <p>${cat.breeds[0].description}</p>
+                <p><b>Temperament:</b> ${cat.breeds[0].temperament}</p>
+            </div>
+
+        </div>`;
       setTimeout(() => {
         catInfo.innerHTML = markup;
       }, delay);
@@ -70,7 +77,7 @@ breedSelect.addEventListener('change', evt => {
       // Notiflix повыдомлення про помилку
       Notiflix.Report.failure(
         'Немає інформації про цього кота!',
-        'Оберіть іншу породу!',
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Будь ласка оберіть іншу породу!',
         'Okay'
       );
       //   Прибираємо розмітку, якщо інформації про кота не існує;

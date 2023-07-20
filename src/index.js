@@ -1,5 +1,11 @@
 import Notiflix from 'notiflix';
 
+import SlimSelect from 'slim-select';
+
+// console.log(SlimSelect);
+
+import 'slim-select/dist/slimselect.css';
+
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 const breedSelect = document.querySelector('.breed-select');
@@ -27,11 +33,29 @@ fetchBreeds()
   .then(data => {
     console.log('Масив котів: ', data);
     // Розмітка для меню тегу селект
-    const option = data.map(
-      ({ id, name }) => `<option value="${id}">${name}</option>`
-    );
-    breedSelect.innerHTML = option;
+    // const option = data.map(
+    //   ({ id, name }) => `<option value="${id}">${name}</option>`
+    // );
+    // breedSelect.innerHTML = option;
+
+    const option = data
+      .map(
+        ({ id, name }) => `
+        <option value="${id}">${name}</option>
+    `
+      )
+      .join('');
+    breedSelect.insertAdjacentHTML('beforeend', option);
+
+
+    //!  Стилізуємо селект з допомогою бібіліотеки SlimSelect ****************************************************
+    new SlimSelect({
+      select: '#slim-select',
+    });
+    //!  Стилізуємо селект з допомогою бібіліотеки SlimSelect ****************************************************
   })
+  
+
   .catch(() => {
     Notiflix.Report.failure('Щось пішло не так! Перезавантажте сторінку!');
   });
